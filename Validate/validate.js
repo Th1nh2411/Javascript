@@ -5,22 +5,24 @@ class Validator {
 
   constructor(options) {
     this.options = options;
+    this.selectorRules = {};
   }
 
   main() {
     // Lấy form element cần validate
     const formElement = $(this.options.form);
-    const _this = this;
 
     if (!formElement) {
       console.log('have not form element');
       return;
     }
 
+    // Lặp lần lượt qua các rule
     this.options.rules.forEach(rule => {
       const inputElement = formElement.querySelector(rule.selector);
-      const parentElement = inputElement.parentElement;
-      const errorElement = parentElement.querySelector(this.options.errorSelector);
+      
+      // Lưu lại các rule cho các input
+      this.selectorRules[rule.selector].push(rule.test);
 
       if (!inputElement) {
         console.log('have not input element');
@@ -29,28 +31,46 @@ class Validator {
       
       // Xử lý sự kiện blur
       inputElement.onblur = () => {
-        _this.validate(inputElement, parentElement, errorElement, rule);
+        this.validate(inputElement, rule);
       }
-      
+
       // Xử lý khi user nhập
       inputElement.oninput = () => {
-        errorElement.innerText = '',
-        parentElement.classList.remove('invalid');
+        this.deleteErrorMessage(inputElement);
       }
+      
     })
   }
 
-  validate(inputElement, parentElement, errorElement, rule) {
+  validate(inputElement, rule) {
     let errorMessage = rule.test(inputElement.value);
 
     if(!errorMessage) {
-      errorElement.innerText = '',
-      parentElement.classList.remove('invalid');
+     this.deleteErrorMessage(inputElement);
     }
     else {
-      errorElement.innerText = errorMessage,
-      parentElement.classList.add('invalid');
+      this.createErrorMessage(inputElement, errorMessage);
     }
+  }
+
+  getParentElement(inputElement) {
+    return inputElement.parentElement;
+  }
+  getErrorElement(inputElement) {
+    return this.getParentElement(inputElement).querySelector(this.options.errorSelector);
+  }
+
+  deleteErrorMessage(inputElement) {
+
+    this.getErrorElement(inputElement).innerText = '',
+    this.getParentElement(inputElement).classList.remove('invalid');
+
+  }
+  createErrorMessage(inputElement, errorMessage) {
+
+    this.getErrorElement(inputElement).innerText = errorMessage,
+    this.getParentElement(inputElement).classList.add('invalid');
+
   }
 
   static isRequired(selector, message) {
@@ -85,6 +105,16 @@ class Validator {
       }
     }
 
+  }
+
+  static isConfirmed(selector, getConfirmValue, message) {
+
+    return {
+      selector,
+      test(value) {
+        return value === getConfirmValue() ? undefined : message || "Mật khẩu không trùng khớp";
+      }
+    }
   }
 
 }

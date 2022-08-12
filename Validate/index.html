@@ -55,14 +55,21 @@
         errorSelector : '.form-message',
         rules : [
           Validator.isRequired('#fullname'),
+
           Validator.isEmail('#email'),
-          Validator.minLength('#password', 6)
+
+          Validator.minLength('#password', 6),
+
+          Validator.isRequired('#password_confirmation'),
+          Validator.isConfirmed('#password_confirmation', () => {
+            return $('#form-1 #password').value
+          })
         ]
       }
     );
 
     validate.main();
-
+    console.log(validate.selectorRules)
   </script>
 </body>
 </html>
