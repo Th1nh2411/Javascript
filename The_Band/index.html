@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="./assets/css/liblary.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/responsive.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header width-full">
+                <div class="header__item pointer nav">
+                    <div><a href="#" class="header__item__link">HOME</a></div>
+                </div>
+                <div class="header__item pointer nav">
+                    <div>
+                        <a href="#band" class="header__item__link">BAND</a>
+                    </div>
+                </div>
+                <div class="header__item pointer nav">
+                    <div>
+                        <a href="#tour" class="header__item__link">TOUR</a>
+                    </div>
+                </div>
+                <div class="header__item pointer nav">
+                    <div>
+                        <a href="#" class="header__item__link">CONTACT</a>
+                    </div>
+                </div>
+                <div class="header__item pointer nav">
+                    <div>
+                        <a href="#" class="header__item__link">MORE</a>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <ul class="nav--sub absolute">
+                        <li class="nav">Merchandise</li>
+                        <li class="nav">Extras</li>
+                        <li class="nav">Media</li>
+                    </ul>
+                </div>
+                <div class="header__item pointer nav" style="display: none">
+                    <div>
+                        <a href="#" class="header__item__link">MERCH</a>
+                    </div>
+                </div>
+                <div class="header__item pointer">
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bars" style="display: none"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Slider">
+                <div class="Slider__item active">
+                    <img
+                        src="https://www.w3schools.com/w3images/chicago.jpg"
+                        alt=""
+                        class="Slider__image width-full"
+                    />
+                    <div class="Slider__item--content absolute">
+                        <h3>Chicago</h3>
+                        <p class="font-weight">
+                            Thank you, Chicago - A night we won't forget.
+                        </p>
+                    </div>
+                </div>
+                <div class="Slider__item">
+                    <img
+                        src="https://www.w3schools.com/w3images/ny.jpg"
+                        alt=""
+                        class="Slider__image width-full"
+                    />
+                    <div class="Slider__item--content absolute">
+                        <h3>New York</h3>
+                        <p class="font-weight">
+                            The atmosphere in New York is lorem ipsum.
+                        </p>
+                    </div>
+                </div>
+                <div class="Slider__item">
+                    <img
+                        src="https://www.w3schools.com/w3images/la.jpg"
+                        alt=""
+                        class="Slider__image width-full"
+                    />
+                    <div class="Slider__item--content absolute">
+                        <h3>Los Angeles</h3>
+                        <p class="font-weight">
+                            We had the best time playing at Venice Beach!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="The__band text-center layout-container" id="band">
+                <div class="band__header Head__element">
+                    <h2>THE BAND</h2>
+                    <p
+                        class="font-weight"
+                        style="opacity: 0.6; margin-bottom: 15px"
+                    >
+                        We love music
+                    </p>
+                </div>
+                <div class="band__content">
+                    <p>
+                        We have created a fictional band website. Lorem ipsum
+                        dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </p>
+                </div>
+                <div class="band__images text-center">
+                    <div class="band__image">
+                        <p>Name</p>
+                        <img
+                            src="https://www.w3schools.com/w3images/bandmember.jpg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="band__image">
+                        <p>Name</p>
+                        <img
+                            src="https://www.w3schools.com/w3images/bandmember.jpg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="band__image">
+                        <p>Name</p>
+                        <img
+                            src="https://www.w3schools.com/w3images/bandmember.jpg"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+            <div style="background-color: black" id="tour">
+                <div class="Tour__date layout-container">
+                    <div class="tour__header Head__element text-center">
+                        <h2>TOUR DATES</h2>
+                        <p
+                            class="font-weight"
+                            style="opacity: 0.6; margin-bottom: 15px"
+                        >
+                            Remember to book your tickets!
+                        </p>
+                    </div>
+                    <br />
+                    <div class="tour__ticket">
+                        <ul>
+                            <li>
+                                September
+                                <span>Sold out</span>
+                            </li>
+
+                            <li>
+                                October
+                                <span>Sold out</span>
+                            </li>
+                            <li>
+                                November
+                                <span>3</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tour__plases">
+                        <div class="tour__plase">
+                            <img
+                                style="width: 100%"
+                                src="https://www.w3schools.com/w3images/newyork.jpg"
+                                alt=""
+                            />
+                            <div class="tour__infor">
+                                <p style="color: black">New York</p>
+                                <p style="color: black; opacity: 0.6">
+                                    Fri 27 Nov 2016
+                                </p>
+                                <p style="color: black">
+                                    Praesent tincidunt sed tellus ut rutrum sed
+                                    vitae justo.
+                                </p>
+                                <button class="pointer button">
+                                    Buy Tickets
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tour__plase">
+                            <img
+                                style="width: 100%"
+                                src="https://www.w3schools.com/w3images/paris.jpg"
+                                alt=""
+                            />
+                            <div class="tour__infor">
+                                <p style="color: black">Paris</p>
+                                <p style="color: black; opacity: 0.6">
+                                    Sat 28 Nov 2016
+                                </p>
+                                <p style="color: black">
+                                    Praesent tincidunt sed tellus ut rutrum sed
+                                    vitae justo.
+                                </p>
+                                <button class="pointer button">
+                                    Buy Tickets
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tour__plase">
+                            <img
+                                style="width: 100%"
+                                src="https://www.w3schools.com/w3images/sanfran.jpg"
+                                alt=""
+                            />
+                            <div class="tour__infor">
+                                <p style="color: black">San Francisco</p>
+                                <p style="color: black; opacity: 0.6">
+                                    Sun 29 Nov 2016
+                                </p>
+                                <p style="color: black">
+                                    Praesent tincidunt sed tellus ut rutrum sed
+                                    vitae justo.
+                                </p>
+                                <button class="pointer button">
+                                    Buy Tickets
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact layout-container" id="contact">
+                <div class="contact__header Head__element text-center">
+                    <h2>CONTACT</h2>
+                    <p
+                        class="font-weight"
+                        style="opacity: 0.6; margin-bottom: 15px"
+                    >
+                        Fan? Drop a note!
+                    </p>
+                </div>
+                <div class="contact__layout">
+                    <div class="contact__info" style="width: 50%">
+                        <ul>
+                            <li>
+                                <i
+                                    class="fa-solid fa-location-dot"
+                                    style="line-height: 1.5; width: 30px"
+                                ></i>
+                                <p>Chicago, US</p>
+                            </li>
+                            <li>
+                                <i
+                                    class="fa-solid fa-phone"
+                                    style="line-height: 1.5; width: 30px"
+                                ></i>
+                                <p>Phone: +00 151515</p>
+                            </li>
+                            <li>
+                                <i
+                                    class="fa-solid fa-envelope"
+                                    style="line-height: 1.5; width: 30px"
+                                ></i>
+                                <p>Email: mail@mail.com</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact__input" style="width: 50%">
+                        <form action="#" target="_blank">
+                            <div class="layout">
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    required="Name"
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Email"
+                                    required="Email"
+                                />
+                            </div>
+                            <div class="layout">
+                                <input
+                                    type="text"
+                                    placeholder="Messager"
+                                    style="width: 100%; margin-bottom: 16px"
+                                    required="Messager"
+                                />
+                            </div>
+                            <button
+                                class="button pointer"
+                                style="float: right"
+                                type="submit"
+                            >
+                                SEND
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="map">
+                <img
+                    src="https://www.w3schools.com/w3images/map.jpg"
+                    alt=""
+                    class="width-full"
+                    style="filter: grayscale(50%)"
+                />
+            </div>
+            <div class="footer layout-container">
+                <div class="Head__element text-center">
+                    <h2>
+                        <i class="fa-brands fa-facebook-square"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-snapchat-square"></i>
+                        <i class="fa-brands fa-pinterest-p"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </h2>
+                    <p
+                        class="font-weight"
+                        style="opacity: 0.6; margin-bottom: 15px"
+                    >
+                        "Powered by"
+                        <a
+                            href="https://www.w3schools.com/w3css/default.asp"
+                            target="_blank"
+                            style="color: inherit"
+                            >w3.css</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ticket__modal width-full">
+            <div class="table-container" onclick="event.stopPropagation();">
+                <div class="table__head text-center Head__element">
+                    <h2 style="margin: 10px 0">
+                        <i
+                            class="fa-solid fa-briefcase"
+                            style="margin-right: 16px"
+                        ></i
+                        >Tickets
+                    </h2>
+                    <button class="button" style="font-size: 20px">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="input2">
+                    <form action="#">
+                        <label for=""
+                            ><i class="fa-solid fa-cart-shopping"></i> Tickets,
+                            $15 per person</label
+                        >
+                        <input type="text" placeholder="How many?" required />
+                        <label for=""
+                            ><i class="fa-solid fa-user"></i> Send to</label
+                        >
+                        <input type="text" placeholder="Enter email" required />
+                        <button class="button pointer">
+                            PAY <i class="fa-solid fa-check"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="footer2">
+                    <button class="button pointer">Close</button>
+                    <p>Need <a href="" style="color: blue">help?</a></p>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/js/main.js"></script>
+    </body>
+</html>

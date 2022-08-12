@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+/* Header start */
+.header {
+    height: var(--line-height);
+    background-color: black;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+.header__item {
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+.header__item > div {
+    padding: 0 24px;
+}
+.header__item a {
+    text-decoration: none;
+    line-height: var(--line-height);
+    color: white;
+}
+.header__item:hover a {
+    color: black;
+}
+.header__item:last-child {
+    float: right;
+    height: 100%;
+}
+.header__item:last-child i {
+    line-height: var(--line-height);
+}
+.header__item:last-child:hover {
+    background-color: red;
+}
+.nav--sub {
+    min-width: 160px;
+    list-style: none;
+    background-color: white;
+    display: none;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+}
+.header__item:hover .nav--sub {
+    display: block;
+}
+.nav--sub li {
+    padding: 8px 16px;
+    color: black;
+}
+/* Header End
+Banner start */
+.Slider {
+    margin-top: var(--line-height);
+}
+.Slider__item {
+    position: relative;
+    display: none;
+}
+.Slider__item--content {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    padding: 40px 16px;
+}
+.Slider__item--content h3,
+.Slider__item--content p {
+    margin: 10px 0;
+    text-shadow: 2px 2px #000;
+}
+.Slider__item--content h3 {
+    font-size: 24px;
+}
+.Slider__item--content p {
+    font-size: 17px;
+}
+.active {
+    display: block;
+}
+/* Banner end
+The Band start*/
+.band__content {
+    text-align: justify;
+}
+.band__images {
+    padding: 32px 0;
+    display: flex;
+}
+.band__image {
+    width: calc(100% / 3);
+}
+.band__image p {
+    margin: 15px 0;
+}
+.band__image img {
+    width: 60%;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+/* The band end
+Tour date start */
+.Tour__date {
+    color: white;
+    background-origin: border-box;
+}
+.tour__ticket ul {
+    list-style: none;
+    background-color: white;
+    color: #757575;
+}
+.tour__ticket li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+}
+.tour__ticket li span {
+    padding: 0 8px;
+    margin-left: 15px;
+    background-color: #f44336;
+    color: white;
+}
+.tour__ticket li:last-child span {
+    border-radius: 50%;
+    float: right;
+    background-color: #000;
+}
+.tour__plases {
+    display: flex;
+    margin: 33px -8px 0 -8px;
+}
+.tour__plase {
+    width: calc(100% / 3);
+    padding: 0 8px;
+}
+.tour__infor {
+    background-color: white;
+    padding: 0 16px;
+    display: inline-block;
+}
+.tour__infor P {
+    margin: 15px 0;
+}
+/* Tour__date END
+contact start */
+.contact__layout {
+    display: flex;
+}
+.contact__info ul {
+    list-style: none;
+    font-size: 18px;
+}
+.contact__info ul li {
+    display: flex;
+}
+.layout:first-child {
+    margin: 0 -8px 8px -8px;
+    display: flex;
+}
+.layout:first-child input {
+    margin: 0 8px;
+    width: 50%;
+}
+.contact__layout .layout input {
+    padding: 8px;
+    border: 1px solid #ccc !important;
+}
+
+.footer i:hover {
+    opacity: 0.6;
+}
+
+.ticket__modal {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.table-container {
+    width: 900px;
+    margin: auto;
+    background-color: white;
+    animation: aninate 0.4s;
+    position: relative;
+}
+@keyframes aninate {
+    0% {
+        top: -300px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+.table__head {
+    background-color: #009688;
+    color: white;
+    padding: 32px 16px;
+    position: relative;
+}
+.table__head button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: inherit;
+}
+.table-container .input2 form {
+    display: flex;
+    flex-direction: column;
+    padding: 0.15px 16px;
+}
+.table-container label {
+    margin: 15px 0;
+}
+.table-container input {
+    padding: 8px;
+}
+.input2 button {
+    background-color: #009688;
+    margin: 16px 0;
+    padding: 16px;
+    font-size: 16px;
+}
+.table-container .footer2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15px 16px;
+}
+.footer2 button {
+    background-color: #f44336;
+}

@@ -1,0 +1,59 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 10px 0;
+}
+:root {
+    --line-height: 46.5px;
+}
+.font-weight {
+    font-weight: 400;
+}
+.width-full {
+    width: 100%;
+}
+.width-half {
+    width: 50%;
+}
+.pointer {
+    cursor: pointer;
+}
+.absolute {
+    position: absolute;
+}
+.text-center {
+    text-align: center;
+}
+.Head__element h2 {
+    letter-spacing: 4px;
+    font-size: 30px;
+    margin: 25px 0;
+}
+.layout-container {
+    padding: 64px 16px;
+    margin: auto;
+    max-width: 800px;
+}
+.button:hover,
+.nav:hover {
+    background-color: #ccc;
+    color: black;
+}
+.poseudo::after,
+.poseudo::before {
+    content: "";
+    display: table;
+    clear: both;
+}
+.button {
+    padding: 8px 16px;
+    background-color: #000;
+    color: white;
+    margin-bottom: 16px;
+    border: none;
+}
