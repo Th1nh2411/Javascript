@@ -17,17 +17,51 @@ class Validator {
       return;
     }
 
+    // Disable submit
+    formElement.onsubmit = (e) => {
+      e.preventDefault();
+      let isSuccess = true;
+
+      // Lặp qua từng rule và validate
+      this.options.rules.forEach((rule) => {
+        const inputElement = formElement.querySelector(rule.selector);
+        let flagError = this.validate(inputElement, rule);
+
+        if(flagError)
+          isSuccess = false;
+      })
+
+      if(isSuccess) {
+        if(typeof this.options.onSubmit !== 'function') {
+          // formElement.onsubmit();
+          return;
+        }
+
+        let enableInputs = formElement.querySelectorAll('input[name]');
+
+        let formValue = Array.from(enableInputs).reduce((formValue, input) => {
+          return (formValue[input.name] = input.value) && formValue;
+        },{})
+
+        this.options.onSubmit(formValue);
+      }
+
+    }
+
     // Lặp lần lượt qua các rule
     this.options.rules.forEach(rule => {
       const inputElement = formElement.querySelector(rule.selector);
       
-      // Lưu lại các rule cho các input
-      this.selectorRules[rule.selector].push(rule.test);
-
       if (!inputElement) {
         console.log('have not input element');
         return;
       }
+
+      // Lưu lại các rule cho các input
+      if(Array.isArray(this.selectorRules[rule.selector]))
+        this.selectorRules[rule.selector].push(rule.test)
+      else 
+        this.selectorRules[rule.selector] = [rule.test]
       
       // Xử lý sự kiện blur
       inputElement.onblur = () => {
@@ -43,14 +77,21 @@ class Validator {
   }
 
   validate(inputElement, rule) {
-    let errorMessage = rule.test(inputElement.value);
+    let errorMessage;
+    let rulesOfInputE = this.selectorRules[rule.selector]
 
-    if(!errorMessage) {
+    // Lặp qua từng rule có lỗi thì break
+    for (let ruleOfInput of rulesOfInputE ) {
+      errorMessage = ruleOfInput(inputElement.value)
+      if(errorMessage) break;
+    }
+
+    if(!errorMessage)
      this.deleteErrorMessage(inputElement);
-    }
-    else {
+    else
       this.createErrorMessage(inputElement, errorMessage);
-    }
+
+    return errorMessage;
   }
 
   getParentElement(inputElement) {
@@ -96,7 +137,7 @@ class Validator {
 
   }
 
-  static minLength (selector, min, message) {
+  static minLength(selector, min, message) {
 
     return {
       selector,
