@@ -33,14 +33,15 @@ class Validator {
 
       if(isSuccess) {
         if(typeof this.options.onSubmit !== 'function') {
-          // formElement.onsubmit();
+          formElement.submit();
           return;
         }
 
         let enableInputs = formElement.querySelectorAll('input[name]');
 
         let formValue = Array.from(enableInputs).reduce((formValue, input) => {
-          return (formValue[input.name] = input.value) && formValue;
+          formValue[input.name] = input.value
+          return formValue;
         },{})
 
         this.options.onSubmit(formValue);
@@ -95,7 +96,7 @@ class Validator {
   }
 
   getParentElement(inputElement) {
-    return inputElement.parentElement;
+    return inputElement.closest(this.options.formGroupSelector);
   }
   getErrorElement(inputElement) {
     return this.getParentElement(inputElement).querySelector(this.options.errorSelector);
