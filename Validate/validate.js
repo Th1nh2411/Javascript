@@ -40,7 +40,15 @@ class Validator {
         let enableInputs = formElement.querySelectorAll('input[name]');
 
         let formValue = Array.from(enableInputs).reduce((formValue, input) => {
-          formValue[input.name] = input.value
+          switch(input.type) {
+            case 'radio':
+            case 'checkbox':
+              if(input.matches(':checked'))
+              formValue[input.name] = input.value;
+              break;
+            default :
+              formValue[input.name] = input.value;
+          }
           return formValue;
         },{})
 
@@ -51,9 +59,9 @@ class Validator {
 
     // Lặp lần lượt qua các rule
     this.options.rules.forEach(rule => {
-      const inputElement = formElement.querySelector(rule.selector);
+      const inputElements = formElement.querySelectorAll(rule.selector);
       
-      if (!inputElement) {
+      if (!inputElements) {
         console.log('have not input element');
         return;
       }
@@ -63,17 +71,21 @@ class Validator {
         this.selectorRules[rule.selector].push(rule.test)
       else 
         this.selectorRules[rule.selector] = [rule.test]
-      
-      // Xử lý sự kiện blur
-      inputElement.onblur = () => {
-        this.validate(inputElement, rule);
-      }
 
-      // Xử lý khi user nhập
-      inputElement.oninput = () => {
-        this.deleteErrorMessage(inputElement);
-      }
-      
+      // Lặp các inputElement trong trường hợp 1 selector có nhiều element
+      inputElements.forEach( inputElement => {
+
+        // Xử lý sự kiện blur
+        inputElement.onblur = () => {
+          this.validate(inputElement, rule);
+        }
+
+        // Xử lý khi user nhập
+        inputElement.oninput = () => {
+          this.deleteErrorMessage(inputElement);
+        }
+
+      })
     })
   }
 
@@ -83,7 +95,14 @@ class Validator {
 
     // Lặp qua từng rule có lỗi thì break
     for (let ruleOfInput of rulesOfInputE ) {
-      errorMessage = ruleOfInput(inputElement.value)
+      switch(inputElement.type) {
+        case 'radio':
+        case 'checkbox':
+          errorMessage = ruleOfInput($(`${this.options.form} ${rule.selector}:checked`));
+          break;
+        default :
+          errorMessage = ruleOfInput(inputElement.value);
+      }
       if(errorMessage) break;
     }
 
@@ -120,7 +139,7 @@ class Validator {
     return {
       selector,
       test(value) {
-        return value.trim() ? undefined : message || 'Vui lòng nhập trường này';
+        return value ? undefined : message || 'Vui lòng nhập trường này';
       }
     }
 

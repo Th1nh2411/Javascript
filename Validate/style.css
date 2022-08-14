@@ -104,3 +104,6 @@ html {
 .spacer {
   margin-top: 36px;
 }
+.form-group:last-child() {
+  flex-direction: row;
+}
