@@ -37,15 +37,25 @@ class Validator {
           return;
         }
 
-        let enableInputs = formElement.querySelectorAll('input[name]');
+        let enableInputs = formElement.querySelectorAll('[name]');
 
         let formValue = Array.from(enableInputs).reduce((formValue, input) => {
           switch(input.type) {
             case 'radio':
-            case 'checkbox':
-              if(input.matches(':checked'))
-              formValue[input.name] = input.value;
+              if(input.checked)
+                formValue[input.name] = input.value;
               break;
+            case 'checkbox':
+              if(!formValue[input.name])
+                formValue[input.name] = [];
+              if(input.checked)
+                formValue[input.name].push(input.value);
+              break;
+            case 'select-one':
+              formValue[input.name] = input.options[input.selectedIndex].value;
+              break;
+            case 'file':
+              formValue[input.name] = input.files;
             default :
               formValue[input.name] = input.value;
           }
@@ -98,7 +108,11 @@ class Validator {
       switch(inputElement.type) {
         case 'radio':
         case 'checkbox':
-          errorMessage = ruleOfInput($(`${this.options.form} ${rule.selector}:checked`));
+          errorMessage = ruleOfInput(inputElement.checked);
+          break;
+        case 'select-one':
+          let select = $(`${this.options.form} ${rule.selector}`);
+          errorMessage = ruleOfInput(select.selectedIndex != 0 ? true : undefined);
           break;
         default :
           errorMessage = ruleOfInput(inputElement.value);
